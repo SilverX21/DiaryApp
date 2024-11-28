@@ -14,5 +14,5 @@ public class DiaryEntry
     public string Content { get; set; } = string.Empty;
 
     [Required]
-    public DateTime Created { get; set; } = DateTime.UtcNow;
+    public DateTime Created { get; set; } = DateTime.Now;
 }

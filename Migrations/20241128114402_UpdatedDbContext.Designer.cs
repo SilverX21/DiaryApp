@@ -4,6 +4,7 @@ using DiaryApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiaryApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241128114402_UpdatedDbContext")]
+    partial class UpdatedDbContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,29 +47,6 @@ namespace DiaryApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DiaryEntries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Content = "Went hiking with Joe",
-                            Created = new DateTime(2024, 11, 28, 11, 53, 32, 402, DateTimeKind.Local).AddTicks(2696),
-                            Title = "Went Hiking"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Content = "Went shopping with Joe",
-                            Created = new DateTime(2024, 11, 28, 11, 53, 32, 402, DateTimeKind.Local).AddTicks(3185),
-                            Title = "Went Shopping"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Content = "Went diving with Joe",
-                            Created = new DateTime(2024, 11, 28, 11, 53, 32, 402, DateTimeKind.Local).AddTicks(3190),
-                            Title = "Went Diving"
-                        });
                 });
 #pragma warning restore 612, 618
         }
